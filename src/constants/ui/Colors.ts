@@ -8,4 +8,8 @@ export default {
   black: '#3C3C50',
   borderGrey: '#E7E7E7',
   veryLightGrey: '#F7F7F7',
+  darkBlue: '#4D48DA',
+  orange: '#FFB900',
+  green: '#00CA47',
+
 }
