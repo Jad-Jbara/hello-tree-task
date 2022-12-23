@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from 'react'
-import { Image, Text, TextInput, View } from 'react-native'
+import React, { useState } from 'react'
+import { Image, KeyboardTypeOptions, Text, TextInput, View } from 'react-native'
 
 import Images from 'assets/Images'
 
@@ -7,6 +7,7 @@ import styles from './styles'
 import MainButton from 'components/Buttons/MainButton'
 import Animated, { FadeIn, FadeInDown, FadeOutDown, FadeOutUp, ZoomIn, ZoomOut } from 'react-native-reanimated'
 import Colors from 'constants/ui/Colors'
+import DropDownPicker from 'react-native-dropdown-picker'
 
 type Props = {
   placeholder?: string
@@ -16,6 +17,11 @@ type Props = {
   errorMessage?: string
   checkForError?: () => void
   onBlur?: () => void
+  withDropDown?: boolean
+  pickerValues?: { value: string, label: string }[]
+  pickerValue?: string
+  setPickerValue?: any
+  keyboardType?: KeyboardTypeOptions
 }
 
 const LabeledInput: React.FC<Props> = ({
@@ -26,8 +32,14 @@ const LabeledInput: React.FC<Props> = ({
   errorMessage,
   checkForError,
   onBlur,
+  pickerValue,
+  withDropDown,
+  pickerValues,
+  setPickerValue,
+  keyboardType
 }: Props) => {
   // const isUnputInvalid = isErrorShown
+  const [pickerOpen, setPickerOpen] = useState()
 
   const onInputBlur = () => {
     checkForError && checkForError()
@@ -45,13 +57,26 @@ const LabeledInput: React.FC<Props> = ({
         </Animated.View>
       )}
       {placeholder && <Text style={[styles.placeholder, isErrorShown && styles.errorRed]}>{placeholder}</Text>}
-      <TextInput
-        value={value}
-        onChangeText={onChangeText}
-        cursorColor={Colors.blue}
-        onBlur={onInputBlur}
-        style={[styles.input, isErrorShown && styles.redBorder]}
-      />
+      <View style={styles.row}>
+        {withDropDown && <DropDownPicker
+          open={pickerOpen}
+          setOpen={setPickerOpen}
+          items={pickerValues}
+          value={pickerValue}
+          setValue={setPickerValue}
+          style={styles.picker}
+          dropDownContainerStyle={styles.container}
+          containerStyle={styles.containerStyle}
+        />}
+        <TextInput
+          value={value}
+          onChangeText={onChangeText}
+          cursorColor={Colors.blue}
+          onBlur={onInputBlur}
+          keyboardType={keyboardType}
+          style={[styles.input, isErrorShown && styles.redBorder, withDropDown && styles.removedBorderRadius]}
+        />
+      </View>
     </>
   )
 }

@@ -10,6 +10,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.borderGrey,
     padding: 10,
+    flex: 1,
   },
   placeholder: {
     ...Typography.placeholder,
@@ -30,5 +31,23 @@ export default StyleSheet.create({
   errorText: {
     ...Typography.name,
     color: Colors.red,
+  },
+  picker: {
+    borderColor: Colors.borderGrey,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'flex-start'
+  },
+  container: {
+  },
+  containerStyle: {
+    width: '30%',
+  },
+  removedBorderRadius: {
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
   },
 })
