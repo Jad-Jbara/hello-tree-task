@@ -8,11 +8,9 @@ import LanguageScreen from 'screens/Authentication/Language'
 import VerifyEmailScreen from 'screens/Authentication/VerifyEmail'
 import RequestAccessScreen from 'screens/Authentication/RequestAccess'
 import RequestSuccessScreen from 'screens/Authentication/RequestSuccess'
-
-// import Login from 'screens/Login'
-
-// import styles from './styles'
-// import Onboarding from 'screens/Onboarding'
+import IntroductionScreen from 'screens/Onboarding/Introduction'
+import TutorialScreen from 'screens/Onboarding/Tutorial'
+import TestSpinScreen from 'screens/Onboarding/TestSpin'
 
 const defaultNavigationOptions = () => ({
   screenOptions: {
@@ -53,9 +51,11 @@ const AuthStack = () => {
 const OnboardingNavigator = createNativeStackNavigator()
 const OnboardingStack = () => {
   const screens = [
-    // { name: 'Onboarding', component: Onboarding, },
+    { name: 'IntroductionScreen', component: IntroductionScreen },
+    { name: 'TutorialScreen', component: TutorialScreen },
+    { name: 'TestSpinScreen', component: TestSpinScreen },
   ]
-  return createStack(OnboardingNavigator, screens)
+  return createStack(OnboardingNavigator, screens, navigationOptions)
 }
 
 const MainStackNaviagtor = createNativeStackNavigator()
@@ -65,13 +65,9 @@ const MainStack = () => {
       name: 'Home',
       component: OnboardingStack,
     },
-    // {
-    //   name: 'Authentication',
-    //   component: AuthStack,
-    // },
   ]
 
   return createStack(MainStackNaviagtor, screens, navigationOptions)
 }
 
-export { AuthStack }
+export { AuthStack, MainStack }
