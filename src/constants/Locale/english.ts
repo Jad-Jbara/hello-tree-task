@@ -37,4 +37,31 @@ export default {
     country: 'Country',
     city: 'City',
   },
+  onboardingIntro: {
+    title: 'Welcome to Spin!',
+    description: 'An online game with real-life prizes!',
+    buttonLabel: 'See how it works!',
+  },
+  tutorial: {
+    step1: {
+      title: 'Spin & win',
+      description: 'Spin the wheel to win prizes you\'ll love!',
+    },
+    step2: {
+      title: 'Answer & spin',
+      description: 'Answer daily surveys to level up and get more points!',
+    },
+    step3: {
+      title: 'Collect points',
+      description: 'The more points you have, the more spins you can get!',
+    },
+    step4: {
+      title: 'Spin every day',
+      description: 'Get a daily new spin to keep playing!',
+    },
+  },
+  testSpin: {
+    title: 'Here\'s a test wheel for you to try out! Ready?',
+    description: 'Tap the wheel to get your first spins!',
+  }
 }
