@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 import Navigation from 'navigation'
-import { useEffect } from 'react'
 import LanguageStore from 'stores/LanguageStore'
 
 export default function App() {
@@ -15,10 +17,14 @@ export default function App() {
   }, [])
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
-      <Navigation />
-    </SafeAreaView>
+    <GestureHandlerRootView style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <BottomSheetModalProvider>
+          <StatusBar style="auto" />
+          <Navigation />
+        </BottomSheetModalProvider>
+      </SafeAreaView>
+    </GestureHandlerRootView>
   );
 }
 
