@@ -34,6 +34,8 @@ export default StyleSheet.create({
   },
   picker: {
     borderColor: Colors.borderGrey,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
   },
   row: {
     flexDirection: 'row',
