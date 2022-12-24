@@ -36,6 +36,8 @@ export default {
     email: 'Email Address',
     country: 'Country',
     city: 'City',
+    firstName: 'First Name',
+    lastName: 'Last Name',
   },
   onboardingIntro: {
     title: 'Welcome to Spin!',
@@ -63,5 +65,34 @@ export default {
   testSpin: {
     title: 'Here\'s a test wheel for you to try out! Ready?',
     description: 'Tap the wheel to get your first spins!',
+  },
+  signUp: {
+    title: 'Phone number',
+    description: 'Use your phone number to sign up or login on the app.',
+  },
+  name: {
+    title: 'What\'s your name?',
+    description: 'You can choose whether your name appears publicly in the Activity Feed and Leaderboard in your privacy settings.',
+  },
+  birthday: {
+    title: 'When\'s your birthday?',
+    description: 'You must be 18+ to use the app.',
+  },
+  gender: {
+    title: 'What\'s your gender?',
+    description: 'Your gender will not be shown to others. It is only used for better prize matching.',
+  },
+  maritalStatus: {
+    title: 'What\'s your marital status?',
+    description: 'Your gender will not be shown to others. It is only used for better prize matching.',
+  },
+  interests: {
+    title: 'What do you like?',
+    description: 'Choose a minimum of 5 interests.',
+  },
+  genders: {
+    male: 'Male',
+    female: 'Female',
+    other: 'I\'d rather not say',
   }
 }
