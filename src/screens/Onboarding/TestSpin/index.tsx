@@ -4,18 +4,16 @@ import {
   Text,
   View
 } from 'react-native'
+import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 
-import MainButton from 'components/Buttons/MainButton'
 import Wheel from 'components/Wheel'
+import Colors from 'constants/ui/Colors'
+
+import SpinRewardModal from 'modals/SpinRewardModal'
 
 import LanguageStore from 'stores/LanguageStore'
 
 import styles from './styles'
-import BottomContainer from 'components/BottomScreenContainer'
-import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
-import Colors from 'constants/ui/Colors'
-import Stepper from 'components/Stepper'
-import SpinRewardModal from 'modals/SpinRewardModal'
 
 const TestSpinScreen = ({ navigation }) => {
   const translations = LanguageStore.textLocale
@@ -45,7 +43,8 @@ const TestSpinScreen = ({ navigation }) => {
   }
 
   const signUp = () => {
-    navigation.navigate('')
+    closeModal()
+    navigation.navigate('SignUp', { screen: 'SignUpScreen' })
   }
 
   return (
@@ -59,13 +58,13 @@ const TestSpinScreen = ({ navigation }) => {
       <Wheel
         onSpin={openModal}
       />
-      <SpinRewardModal
+      {isModalVisible && <SpinRewardModal
         visible={isModalVisible}
         close={closeModal}
         modalTitle={'You’ve just won 5 spins!'}
         buttonLabel={'Sign up and claim spins!'}
         onButtonPress={signUp}
-      />
+      />}
     </Animated.View>
   )
 }
