@@ -7,7 +7,7 @@
     "icon": "./assets/spinIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/spinIcon.png",
+      "image": "./assets/splashScreen.png",
       "resizeMode": "contain"
     },
     "updates": {
