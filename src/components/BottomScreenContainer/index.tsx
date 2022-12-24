@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react'
-import { View, ViewStyle } from 'react-native'
+import { ViewStyle } from 'react-native'
+import Animated, { FadeInDown, FadeOutUp } from 'react-native-reanimated'
+import BottomScreenButton from 'components/BottomScreenButton'
 
 import styles from './styles'
-import MainButton from 'components/Buttons/MainButton'
-import Animated, { FadeInDown, FadeOutDown, FadeOutUp } from 'react-native-reanimated'
 
 type Props = PropsWithChildren<{
   onButtonPress?: () => void
@@ -25,14 +25,12 @@ const BottomContainer: React.FC<Props> = ({
       exiting={FadeOutUp}
       style={[styles.container, containerStyle]}>
       {children}
-      {withBottomButton && <View style={styles.bottomContainer}>
-        <View style={styles.buttonContainer}>
-          <MainButton
-            label={buttonLabel}
-            onPress={onButtonPress}
-          />
-        </View>
-      </View>}
+      {withBottomButton &&
+        <BottomScreenButton
+          buttonLabel={buttonLabel}
+          onButtonPress={onButtonPress}
+        />
+      }
     </Animated.View>
   )
 }

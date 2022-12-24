@@ -12,22 +12,20 @@ const shadow = {
   shadowRadius: 16.00,
 
   elevation: 24,
-
-}
-
-const shadowContainer = {
-  backgroundColor: Colors.white,
-  marginTop: 20,
-  width: '100%',
-  borderTopEndRadius: 20,
-  borderTopStartRadius: 20,
-  // flexGrow: 1,
-  ...shadow
 }
 
 export default StyleSheet.create({
-  container: {
-    ...shadowContainer,
-    flexGrow: 1,
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  buttonContainer: {
+    backgroundColor: Colors.white,
+    marginTop: 20,
+    width: '100%',
+    borderTopEndRadius: 20,
+    borderTopStartRadius: 20,
+    paddingVertical: 12,
+    ...shadow,
   },
 })
