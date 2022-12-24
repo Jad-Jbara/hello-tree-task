@@ -6,21 +6,23 @@ import {
   View
 } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
+import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming, ZoomIn } from 'react-native-reanimated'
 
 import Wheel from 'components/Wheel'
+import BottomContainer from 'components/BottomScreenContainer'
+import Stepper from 'components/Stepper'
+import CircleIndicator from 'components/CircleIndicator'
+import Reward from 'components/Reward'
 
 import LanguageStore from 'stores/LanguageStore'
 
-import styles from './styles'
-import BottomContainer from 'components/BottomScreenContainer'
-import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming, ZoomIn } from 'react-native-reanimated'
-import Colors from 'constants/ui/Colors'
-import Stepper from 'components/Stepper'
 import Images from 'assets/Images'
-import CircleIndicator from 'components/CircleIndicator'
-import Reward from 'components/Reward'
+import Colors from 'constants/ui/Colors'
+import styles from './styles'
+
 const ANIMATION_DELAY_IN_MS = 500
 const BACKGROUND_COLOR_ANIMATION_DURATION = 500
+// should be extracted to separate component
 const WheelOutline = ({ children }) => {
   return (
     <View
@@ -90,6 +92,7 @@ const TutorialScreen = ({ navigation }) => {
     'Face wash',
   ]
 
+  // should be extracted to separate components
   const stepComponents = [
     <Wheel disabled />,
     <WheelOutline>

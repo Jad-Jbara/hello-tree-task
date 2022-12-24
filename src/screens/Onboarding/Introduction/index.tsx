@@ -1,16 +1,11 @@
-import Images from 'assets/Images'
-import BottomContainer from 'components/BottomScreenContainer'
-import MainButton from 'components/Buttons/MainButton'
-import ToggleButton from 'components/Buttons/ToggleButton'
-import IntroLogo from 'components/IntroLogo'
-import Wheel from 'components/Wheel'
-import React, { useState } from 'react'
+import React from 'react'
 import {
-  Image,
-  ScrollView,
   Text,
   View
 } from 'react-native'
+
+import MainButton from 'components/Buttons/MainButton'
+import Wheel from 'components/Wheel'
 
 import LanguageStore from 'stores/LanguageStore'
 

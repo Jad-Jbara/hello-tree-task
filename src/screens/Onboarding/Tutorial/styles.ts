@@ -158,5 +158,8 @@ export default StyleSheet.create({
     right: -30,
     elevation: 10,
     zIndex: 99,
+  },
+  starIcon: {
+    resizeMode: 'contain',
   }
 })

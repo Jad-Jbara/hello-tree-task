@@ -11,9 +11,9 @@ import RequestSuccessScreen from 'screens/Authentication/RequestSuccess'
 import IntroductionScreen from 'screens/Onboarding/Introduction'
 import TutorialScreen from 'screens/Onboarding/Tutorial'
 import TestSpinScreen from 'screens/Onboarding/TestSpin'
-import SignUpScreen from 'screens/Authentication/Signup/Signup'
-import OTPScreen from 'screens/Authentication/Signup/OTP'
-import StepsScreen from 'screens/Authentication/Signup/Steps'
+import SignUpScreen from 'screens/SignUp/Signup'
+import OTPScreen from 'screens/SignUp/OTP'
+import StepsScreen from 'screens/SignUp/Steps'
 
 const defaultNavigationOptions = () => ({
   screenOptions: {
@@ -32,7 +32,7 @@ const navigationOptions = () => ({
   }
 })
 
-const createStack = (Stack: any, screens: Array<{ name: string }>, navigatorOptions: any = defaultNavigationOptions) => {
+const createStack = (Stack: any, screens: Array<{ name: string, component: any }>, navigatorOptions: any = defaultNavigationOptions) => {
   return (
     <Stack.Navigator {...navigatorOptions()}>
       {screens.map((screen) => <Stack.Screen key={screen.name} name={screen.name} component={screen.component} {...screen} />)}

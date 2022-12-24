@@ -8,14 +8,6 @@ export default StyleSheet.create({
     backgroundColor: Colors.blue,
     paddingTop: 60,
   },
-  logo: {
-    resizeMode: 'contain',
-    marginBottom: 20,
-  },
-  title: {
-    ...Typography.heading1,
-    paddingVertical: 16,
-  },
   innerContainer: {
     flex: 1,
     backgroundColor: Colors.white,

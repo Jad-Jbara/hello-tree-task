@@ -2,12 +2,11 @@ import React, { useEffect, useMemo, useRef } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
+import OnboardingStepsContainer from 'components/OnboardingStepsContainer'
+
 import ExtendedBottomSheetModal from 'modals/ExtendedBottomSheetModal'
 
 import styles from './styles'
-import Images from 'assets/Images'
-import MainButton from 'components/Buttons/MainButton'
-import OnboardingStepsContainer from 'components/OnboardingStepsContainer'
 
 
 type OTPModalProps = {
