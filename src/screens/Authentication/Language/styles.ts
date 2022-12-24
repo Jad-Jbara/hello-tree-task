@@ -8,6 +8,9 @@ export default StyleSheet.create({
     backgroundColor: Colors.white,
     paddingTop: 60,
   },
+  logoContainer: {
+    flex: 2,
+  },
   logo: {
     resizeMode: 'contain',
     marginBottom: 20,

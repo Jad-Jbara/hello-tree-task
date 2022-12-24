@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { Image, KeyboardTypeOptions, Text, TextInput, View } from 'react-native'
-
-import Images from 'assets/Images'
+import { KeyboardTypeOptions, Text, TextInput, View } from 'react-native'
+import DropDownPicker from 'react-native-dropdown-picker'
+import Animated, { ZoomIn, ZoomOut } from 'react-native-reanimated'
 
 import styles from './styles'
-import MainButton from 'components/Buttons/MainButton'
-import Animated, { FadeIn, FadeInDown, FadeOutDown, FadeOutUp, ZoomIn, ZoomOut } from 'react-native-reanimated'
 import Colors from 'constants/ui/Colors'
-import DropDownPicker from 'react-native-dropdown-picker'
 
 type Props = {
   placeholder?: string

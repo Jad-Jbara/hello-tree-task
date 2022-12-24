@@ -1,22 +1,16 @@
-import Images from 'assets/Images'
-import BottomScreenButton from 'components/BottomScreenButton'
-import BottomContainer from 'components/BottomScreenContainer'
-import ToggleButton from 'components/Buttons/ToggleButton'
-import IntroLogo from 'components/IntroLogo'
-import LabeledInput from 'components/LabeledInput'
-import OnboardingStepsContainer from 'components/OnboardingStepsContainer'
-import Colors from 'constants/ui/Colors'
 import { StatusBar } from 'expo-status-bar'
-import OTPModal from 'modals/OTPModal'
 import React, { useState } from 'react'
 import {
   FlatList,
-  Image,
-  ScrollView,
   Text,
   View
 } from 'react-native'
 import Animated, { SlideInRight, SlideOutLeft } from 'react-native-reanimated'
+
+import ToggleButton from 'components/Buttons/ToggleButton'
+import LabeledInput from 'components/LabeledInput'
+import OnboardingStepsContainer from 'components/OnboardingStepsContainer'
+import Colors from 'constants/ui/Colors'
 
 import LanguageStore from 'stores/LanguageStore'
 
@@ -149,7 +143,6 @@ const StepsScreen = ({ navigation }) => {
                 selectedInterests.push(interest)
               }
               setSelectedInterests(selectedInterests => [...selectedInterests])
-              console.log(selectedInterests, index)
             }}
           />
         )

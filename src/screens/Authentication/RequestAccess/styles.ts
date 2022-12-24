@@ -39,5 +39,12 @@ export default StyleSheet.create({
   dropDownContainer: {
     width: '50%',
     paddingRight: 20,
+  },
+  logoContainer: {
+    flex: 1
+  },
+  contentContainer: {
+    paddingTop: 60,
+    flexGrow: 1,
   }
 })

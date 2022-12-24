@@ -1,17 +1,16 @@
-import Images from 'assets/Images'
-import BottomContainer from 'components/BottomScreenContainer'
-import ToggleButton from 'components/Buttons/ToggleButton'
-import IntroLogo from 'components/IntroLogo'
 import React, { useState } from 'react'
 import {
   Image,
   ScrollView,
-  Text,
   View
 } from 'react-native'
+import BottomContainer from 'components/BottomScreenContainer'
+import ToggleButton from 'components/Buttons/ToggleButton'
+import IntroLogo from 'components/IntroLogo'
 
 import LanguageStore from 'stores/LanguageStore'
 
+import Images from 'assets/Images'
 import styles from './styles'
 
 const LanguageScreen = ({ navigation }) => {
@@ -19,12 +18,13 @@ const LanguageScreen = ({ navigation }) => {
   const {
     buttonTitle,
     description,
-    title,
   } = translations.language
   const [selectedLanguage, setSelectedLanguage] = useState('english')
 
   const langauges = [
-    'english', 'french', 'arabic',
+    'english',
+    'french',
+    'arabic',
   ]
 
   const selectLanguage = async () => {
@@ -34,7 +34,7 @@ const LanguageScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: 2, }}>
+      <View style={styles.logoContainer}>
         <IntroLogo
           title={description}>
           <Image
@@ -45,14 +45,14 @@ const LanguageScreen = ({ navigation }) => {
       </View>
       <BottomContainer
         buttonLabel={buttonTitle}
-        onButtonPress={selectLanguage}
-      >
+        onButtonPress={selectLanguage}>
         <View style={styles.innerContainer}>
           <ScrollView>
             {langauges.map(language => {
               const isSelected = selectedLanguage === language
               return (
                 <ToggleButton
+                  key={`language_button_${language}`}
                   label={translations.languages[language]}
                   isSelected={isSelected}
                   onPress={() => setSelectedLanguage(language)}

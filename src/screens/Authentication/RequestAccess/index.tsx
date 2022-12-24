@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import {
-  KeyboardAvoidingView,
   ScrollView,
   Text,
   View
 } from 'react-native'
+import DropDownPicker from 'react-native-dropdown-picker'
 
 import BottomContainer from 'components/BottomScreenContainer'
 import IntroLogo from 'components/IntroLogo'
@@ -15,7 +15,6 @@ import { isEmail } from 'helpers/EmailChecker'
 import LanguageStore from 'stores/LanguageStore'
 
 import styles from './styles'
-import DropDownPicker from 'react-native-dropdown-picker'
 
 const RequestAccessScreen = ({ navigation }) => {
   const translations = LanguageStore.textLocale
@@ -40,9 +39,19 @@ const RequestAccessScreen = ({ navigation }) => {
     setEmail(value)
   }
 
-  const verifyInvitation = () => {
+  const checkEmail = () => {
     const isEmailValid = isEmail(email)
+    return isEmailValid
+  }
+
+  const verifyInvitation = () => {
+    const isEmailValid = checkEmail()
     setIsErrorShown(!isEmailValid)
+  }
+
+  const checkForError = () => {
+    const isEmailValid = checkEmail()
+    verifyInvitation()
     if (isEmailValid) {
       navigation.navigate('RequestSuccessScreen')
     }
@@ -70,8 +79,8 @@ const RequestAccessScreen = ({ navigation }) => {
     <ScrollView
       style={styles.container}
       keyboardShouldPersistTaps='handled'
-      contentContainerStyle={{ paddingTop: 60, flexGrow: 1, }}>
-      <View style={{ flex: 1 }}>
+      contentContainerStyle={styles.contentContainer}>
+      <View style={styles.logoContainer}>
         <IntroLogo
           title={description}>
           <Text style={styles.title}>{title}</Text>
@@ -79,7 +88,7 @@ const RequestAccessScreen = ({ navigation }) => {
       </View>
       <BottomContainer
         buttonLabel={buttonTitle}
-        onButtonPress={verifyInvitation}>
+        onButtonPress={checkForError}>
         <View style={styles.innerContainer}>
           <LabeledInput
             placeholder={emailPlaceholder}
