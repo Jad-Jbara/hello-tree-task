@@ -11,6 +11,9 @@ import RequestSuccessScreen from 'screens/Authentication/RequestSuccess'
 import IntroductionScreen from 'screens/Onboarding/Introduction'
 import TutorialScreen from 'screens/Onboarding/Tutorial'
 import TestSpinScreen from 'screens/Onboarding/TestSpin'
+import SignUpScreen from 'screens/Authentication/Signup/Signup'
+import OTPScreen from 'screens/Authentication/Signup/OTP'
+import StepsScreen from 'screens/Authentication/Signup/Steps'
 
 const defaultNavigationOptions = () => ({
   screenOptions: {
@@ -58,12 +61,30 @@ const OnboardingStack = () => {
   return createStack(OnboardingNavigator, screens, navigationOptions)
 }
 
+const SignUpNavigator = createNativeStackNavigator()
+const SignUpStack = () => {
+  const screens = [
+    { name: 'SignUpScreen', component: SignUpScreen },
+    { name: 'OTPScreen', component: OTPScreen },
+    { name: 'StepsScreen', component: StepsScreen },
+  ]
+  return createStack(SignUpNavigator, screens, navigationOptions)
+}
+
 const MainStackNaviagtor = createNativeStackNavigator()
 const MainStack = () => {
   const screens = [
     {
-      name: 'Home',
+      name: 'Authentication',
+      component: AuthStack,
+    },
+    {
+      name: 'Onboarding',
       component: OnboardingStack,
+    },
+    {
+      name: 'SignUp',
+      component: SignUpStack,
     },
   ]
 
