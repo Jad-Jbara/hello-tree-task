@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Image,
   ImageBackground,
@@ -41,6 +41,12 @@ const RequestSuccessScreen = ({ navigation }) => {
     { icon: 'twitter', onPress: () => { } },
     { icon: 'link', onPress: () => { } },
   ]
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Onboarding')
+    }, 3000)
+  }, [])
 
   return (
     <ScrollView
