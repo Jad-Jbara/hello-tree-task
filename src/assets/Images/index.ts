@@ -21,4 +21,5 @@ export default {
   wheelArrow: require(`${PATH_PREFIX}wheelArrow.png`),
   wheelRewardIcon: require(`${PATH_PREFIX}wheelRewardIcon.png`),
   closeIcon: require(`${PATH_PREFIX}closeIcon.png`),
+  backIcon: require(`${PATH_PREFIX}backIcon.png`),
 }
