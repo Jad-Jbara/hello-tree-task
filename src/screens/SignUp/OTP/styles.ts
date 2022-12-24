@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   innerContainer: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.veryLightGrey,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingVertical: 20,

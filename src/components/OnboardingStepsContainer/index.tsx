@@ -81,7 +81,9 @@ const OnboardingStepsContainer: React.FC<Props> = ({
         <Text style={styles.title}>{withSteps ? titles[currentStep].title : title}</Text>
         <Text style={styles.description}>{withSteps ? titles[currentStep].description : description}</Text>
         {children}
-        {withSteps && StepComponent}
+        <View key={currentStep}>
+          {withSteps && StepComponent}
+        </View>
       </View>
       <View style={styles.buttonContainer}>
         <MainButton

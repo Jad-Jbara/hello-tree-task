@@ -5,7 +5,7 @@ import {
   Text,
   View
 } from 'react-native'
-import Animated, { SlideInRight, SlideOutLeft } from 'react-native-reanimated'
+import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated'
 
 import ToggleButton from 'components/Buttons/ToggleButton'
 import LabeledInput from 'components/LabeledInput'
@@ -62,8 +62,8 @@ const StepsScreen = ({ navigation }) => {
   // should be extracted to separate files
   const steps = [
     <Animated.View
-      entering={SlideInRight}
-      exiting={SlideOutLeft}>
+      entering={FadeInRight}
+      exiting={FadeOutLeft}>
       {inputFields.map((item) => {
         return (
           <LabeledInput
@@ -76,7 +76,10 @@ const StepsScreen = ({ navigation }) => {
         )
       })}
     </Animated.View>,
-    <View style={styles.row}>
+    <Animated.View
+      entering={FadeInRight}
+      exiting={FadeOutLeft}
+      style={styles.row}>
       <View style={styles.floatingIndicator} />
       <View style={styles.topOpacity} />
       <View style={styles.bottomOpacity} />
@@ -104,8 +107,10 @@ const StepsScreen = ({ navigation }) => {
         data={Array(20).fill(undefined).map((item, index) => 1986 + index)}
         renderItem={renderItem}
         snapToAlignment={'start'} />
-    </View>,
-    <View>
+    </Animated.View>,
+    <Animated.View
+      entering={FadeInRight}
+      exiting={FadeOutLeft}>
       {genders.map(gender => {
         const isSelected = selectedGender === gender
         return (
@@ -116,8 +121,10 @@ const StepsScreen = ({ navigation }) => {
           />
         )
       })}
-    </View>,
-    <View>
+    </Animated.View>,
+    <Animated.View
+      entering={FadeInRight}
+      exiting={FadeOutLeft}>
       {genders.map(gender => {
         const isSelected = selectedGender === gender
         return (
@@ -128,8 +135,11 @@ const StepsScreen = ({ navigation }) => {
           />
         )
       })}
-    </View>,
-    <View style={styles.wrapRow}>
+    </Animated.View>,
+    <Animated.View
+      entering={FadeInRight}
+      exiting={FadeOutLeft}
+      style={styles.wrapRow}>
       {interests.map((interest, index) => {
         const isSelected = selectedInterests.includes(interest)
         return (
@@ -149,7 +159,7 @@ const StepsScreen = ({ navigation }) => {
           />
         )
       })}
-    </View>
+    </Animated.View>
   ]
 
   const titles = [
