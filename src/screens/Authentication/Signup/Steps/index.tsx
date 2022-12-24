@@ -59,11 +59,11 @@ const StepsScreen = ({ navigation }) => {
     'Alcohol',
   ]
 
+  // should be extracted to separate files
   const steps = [
     <Animated.View
       entering={SlideInRight}
-      exiting={SlideOutLeft}
-    >
+      exiting={SlideOutLeft}>
       {inputFields.map((item) => {
         return (
           <LabeledInput
@@ -78,6 +78,8 @@ const StepsScreen = ({ navigation }) => {
     </Animated.View>,
     <View style={styles.row}>
       <View style={styles.floatingIndicator} />
+      <View style={styles.topOpacity} />
+      <View style={styles.bottomOpacity} />
       <FlatList
         style={styles.listContainer}
         showsVerticalScrollIndicator={false}
@@ -147,7 +149,7 @@ const StepsScreen = ({ navigation }) => {
           />
         )
       })}
-    </View>,
+    </View>
   ]
 
   const titles = [
@@ -173,9 +175,7 @@ const StepsScreen = ({ navigation }) => {
         withSteps
         steps={steps}
         buttonLabel={'Next'}
-        onButtonPress={onNext}
-      >
-      </OnboardingStepsContainer>
+        onButtonPress={onNext} />
     </View>
   )
 }

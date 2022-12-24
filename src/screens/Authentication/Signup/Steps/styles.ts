@@ -1,7 +1,15 @@
 
 import Colors from 'constants/ui/Colors'
 import Typography from 'constants/ui/Typography'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, ViewStyle } from 'react-native'
+const commonOpacityStyle: ViewStyle = {
+  position: 'absolute',
+  zIndex: 100,
+  width: '100%',
+  height: 40,
+  opacity: 0.4,
+  backgroundColor: Colors.white
+}
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -47,5 +55,13 @@ export default StyleSheet.create({
   wrapRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+  },
+  topOpacity: {
+    ...commonOpacityStyle,
+    top: 0,
+  },
+  bottomOpacity: {
+    bottom: 0,
+    ...commonOpacityStyle,
   }
 })
